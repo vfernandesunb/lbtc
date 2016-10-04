@@ -38,7 +38,7 @@ def clouds_in_sites(DOCK_IN, RECEPTOR, CUTOFF, CENTER, OUTPUT, SEL_RECEPTOR, SEL
     for site in SEL_SITES:
         fd.write("################# SITE: {} #################\n".format(site))
         if CENTER:
-            coords = mol.selectAtoms("{}".format(site)).center
+            coords = mol.selectAtoms("{}".format(site)).center()
             #coords = mol.selectAtoms("{}").centerOfMass
             sel = mol.selectAtoms("{} and same residue as (sqr(x{:+.03f}) + sqr(y{:+.03f}) + sqr(z{:+.03f}) < sqr({}))".format(SEL_LIGAND, coords[0]*(-1), coords[1]*(-1), coords[2]*(-1), CUTOFF))
         else:
